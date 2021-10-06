@@ -60,6 +60,12 @@ public class Application {
                  */
                 gameController.checkScore();
 
+                /**
+                 * 기능 4. 선택한 3개의 숫자를 모두 맞히면 종료하는 기능 만들기
+                 */
+                if(gameController.getScore().getStrike() == 3) {
+                    gameController.endGame();                               //  게임 종료
+                }
             }
 
         }
