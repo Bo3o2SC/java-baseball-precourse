@@ -8,7 +8,7 @@ public class OutputView {
             return;
         }
         if(strikeNumber > 0)
-            System.out.print(strikeNumber + "스트라이크" );
+            System.out.print(strikeNumber + "스트라이크 ");
         if(ballNumber > 0)
             System.out.print(ballNumber + "볼");
         System.out.println("");

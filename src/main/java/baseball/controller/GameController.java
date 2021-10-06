@@ -54,7 +54,6 @@ public class GameController {
         outputView.selectGame();
     }
 
-
     public Computer getComputer() {
         return computer;
     }
