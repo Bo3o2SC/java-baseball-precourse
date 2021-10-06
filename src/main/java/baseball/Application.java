@@ -65,6 +65,21 @@ public class Application {
                  */
                 if(gameController.getScore().getStrike() == 3) {
                     gameController.endGame();                               //  게임 종료
+
+                    /**
+                     * 기능 5. 종료한 후 게임을 다시 시작하거나 완전히 종료하는 기능만들기
+                     */
+                    gameController.selectGame();
+                    inputNumber = gameController.readInputNumber();
+
+                    if(inputNumber.equals("1"))
+                        break;
+                    if(inputNumber.equals("2"))
+                        System.exit(0);
+                    if(!inputNumber.equals("1") || !inputNumber.equals("2")) {
+                        gameController.getInputView().printInputError();
+                        break;
+                    }
                 }
             }
 
