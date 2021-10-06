@@ -34,12 +34,20 @@ public class Application {
             /**
              * 기능 1. 숫자 입력기능 만들기
              */
-            gameController.getInputView().printInputNumber();                               //  숫자입력 안내
+            gameController.getInputView().printInputNumber();                                //  숫자입력 안내
+
             if (!gameController.validateInputNumber(gameController.readInputNumber())) {     //  숫자읽기 및 유효성 확인
                 //  유효하지 않은 숫자의 경우 에러메시지 출력 후 다시 입력받기
                 gameController.getInputView().printInputError();
                 continue;
             }
+            /**
+             * 기능 2. 서로다른 랜덤 숫자 3개 형성하는 컴퓨터 만들기
+             */
+             gameController.makeGameNumbers();
+
+
+
         }
     }
 }

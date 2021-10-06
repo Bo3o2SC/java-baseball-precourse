@@ -8,6 +8,7 @@ import baseball.view.OutputView;
 
 import java.util.ArrayList;
 
+import static baseball.utils.Numbers.makeRandomThreeDigits;
 import static baseball.utils.Numbers.validateNumber;
 import static nextstep.utils.Console.readLine;
 
@@ -31,6 +32,10 @@ public class GameController {
 
     public String readInputNumber() {
         return readLine();
+    }
+
+    public void makeGameNumbers() {
+        computer.setGameNumbers(makeRandomThreeDigits(computer.getStartNumber(), computer.getEndNumber()));
     }
 
 

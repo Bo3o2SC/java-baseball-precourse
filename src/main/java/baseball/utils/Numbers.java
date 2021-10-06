@@ -2,10 +2,9 @@ package baseball.utils;
 
 import java.util.ArrayList;
 
+import static nextstep.utils.Randoms.pickNumberInRange;
+
 public class Numbers {
-
-    private static ArrayList<Integer> numbers;
-
 
     public static boolean isNumeric(String number) {
         return number.matches("[+-]?\\d*(\\.\\d+)?");
@@ -46,5 +45,38 @@ public class Numbers {
             return false;
 
         return true;
+    }
+
+    public static boolean checkDuplicate(int number, ArrayList<Integer> numbers) {
+
+        boolean bDuplicated = false;
+        for(int i = 0; i < numbers.size(); i++) {
+            if(number == numbers.get(i)) {
+                bDuplicated = true;
+                break;
+            }
+        }
+        return bDuplicated;
+    }
+
+    public static ArrayList<Integer> makeRandomThreeDigits(int startNumber, int endNumber) {
+
+        int num = 3;
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        while(num > 0) {
+
+            int number = pickNumberInRange(startNumber, endNumber);
+
+            boolean bDuplicated = checkDuplicate(number, numbers);
+
+            if(!bDuplicated) {
+                numbers.add(number);
+                num--;
+            }
+        }
+
+        return numbers;
     }
 }
