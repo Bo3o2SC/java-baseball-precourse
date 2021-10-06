@@ -8,8 +8,7 @@ import baseball.view.OutputView;
 
 import java.util.ArrayList;
 
-import static baseball.utils.Numbers.makeRandomThreeDigits;
-import static baseball.utils.Numbers.validateNumber;
+import static baseball.utils.Numbers.*;
 import static nextstep.utils.Console.readLine;
 
 public class GameController {
@@ -19,11 +18,12 @@ public class GameController {
     private InputView inputView;
     private OutputView outputView;
 
-    public GameController(Computer computer, User user, Score score, InputView inputView) {
+    public GameController(Computer computer, User user, Score score, InputView inputView, OutputView outputView) {
         this.computer = computer;
         this.user = user;
         this.score = score;
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
     public boolean validateInputNumber(String inputNumber) {
@@ -34,8 +34,24 @@ public class GameController {
         return readLine();
     }
 
-    public void makeGameNumbers() {
-        computer.setGameNumbers(makeRandomThreeDigits(computer.getStartNumber(), computer.getEndNumber()));
+    public ArrayList<Integer> makeGameNumbers() {
+        return makeRandomThreeDigits(computer.getStartNumber(), computer.getEndNumber());
+    }
+
+    public void checkScore() {
+        int strike = checkStrike(user.getUserNumber(), computer.getGameNumbers());
+        int ball = checkBall(user.getUserNumber(), computer.getGameNumbers());
+        score.setStrike(strike);
+        score.setBall(ball);
+        outputView.printStrikeAndBall(strike, ball);
+    }
+
+    public void endGame() {
+        outputView.printEndGame();
+    }
+
+    public void selectGame() {
+        outputView.selectGame();
     }
 
 

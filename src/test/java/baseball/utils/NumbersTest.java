@@ -66,4 +66,39 @@ public class NumbersTest {
         ArrayList<Integer> threeDigits = makeRandomThreeDigits(1,9);
         Assertions.assertTrue(threeDigits.size() == 3);
     }
+
+    @Test
+    void 스트라이크세기() {
+        String inputNumber = "123";
+        ArrayList<Integer> gameNumbers = new ArrayList<>();
+        gameNumbers.add(1);
+        gameNumbers.add(3);
+        gameNumbers.add(5);
+        int result = checkStrike(inputNumber, gameNumbers);
+        Assertions.assertTrue(result == 1);
+    }
+
+    @Test
+    void 볼카운트세기() {
+        String inputNumber = "123";
+        ArrayList<Integer> gameNumbers = new ArrayList<>();
+        gameNumbers.add(2);
+        gameNumbers.add(3);
+        gameNumbers.add(5);
+        int result = checkBall(inputNumber, gameNumbers);
+        Assertions.assertTrue(result == 2);
+    }
+
+    @Test
+    void 낫싱() {
+        String inputNumber = "123";
+        ArrayList<Integer> gameNumbers = new ArrayList<>();
+        gameNumbers.add(4);
+        gameNumbers.add(5);
+        gameNumbers.add(6);
+        int strike = checkStrike(inputNumber, gameNumbers);
+        int ball = checkBall(inputNumber, gameNumbers);
+        Assertions.assertTrue(strike == 0);
+        Assertions.assertTrue(ball == 0);
+    }
 }

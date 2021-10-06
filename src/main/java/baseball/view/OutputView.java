@@ -2,12 +2,16 @@ package baseball.view;
 
 public class OutputView {
 
-    public void printBall(int ballNumber) {
-        System.out.println(ballNumber + "볼");
-    }
-
-    public void printStrike(int strikeNumber) {
-        System.out.println(strikeNumber + "스트라이크");
+    public void printStrikeAndBall(int strikeNumber, int ballNumber) {
+        if(strikeNumber == 0 && ballNumber == 0) {
+            System.out.println("낫싱");
+            return;
+        }
+        if(strikeNumber > 0)
+            System.out.print(strikeNumber + "스트라이크" );
+        if(ballNumber > 0)
+            System.out.print(ballNumber + "볼");
+        System.out.println("");
     }
 
     public void printEndGame() {

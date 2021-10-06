@@ -79,4 +79,24 @@ public class Numbers {
 
         return numbers;
     }
+
+    public static int checkStrike(String inputNumber, ArrayList<Integer> gameNumbers) {
+        int count = 0;
+        for (int i = 0; i < 3; i++) {
+            if(Character.getNumericValue(inputNumber.charAt(i)) == gameNumbers.get(i))
+                count ++;
+        }
+        return count;
+    }
+
+    public static int checkBall(String inputNumber, ArrayList<Integer> gameNumbers) {
+        int count = 0;
+        for (int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                if(i != j && Character.getNumericValue(inputNumber.charAt(i)) == gameNumbers.get(j))
+                    count++;
+            }
+        }
+        return count;
+    }
 }
